@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Sign your name{% end %}
+
+{% block student %}
+    {% if username %}
+        <h4>{{ username }}</h4>
+    {% end %}
+{% end %}
+
+{% block script %}
+<script>
+    var ws = new WebSocket("ws://localhost:1236/ws");
+    ws.onmessage = function (evt) {
+        console.log(evt.data);
+    };
+    document.querySelector('h2').addEventListener('click', function() {
+        ws.send("我来了");
+    }, false);
+</script>
+{% end %}
