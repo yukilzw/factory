@@ -212,3 +212,15 @@ msgData = [
     'text': '哦'
   },
 ]
+
+lotteryConfig = {
+  'pageBg': 'http://m.qpic.cn/psb?/V14dALyK4PrHuj/34o8GU5chGip*chFO*A0jNcqn3Gc0Alomq1ZvxGhsZs!/b/dL8AAAAAAAAA',
+  'pageH': 546.0,
+  'lotteryBg': 'http://m.qpic.cn/psb?/V14dALyK4PrHuj/2uQoAkAV1UGZ2Y3seRWPU6vLyS*OC*4WM1hS**Uva48!/b/dL8AAAAAAAAA',
+  'lotteryH': 236.0,
+  'lotteryW': 351.0,
+  'highLightBg': 'http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/7negjfbFqhI7YGRpJvJ7HhQVw6mrUIF3iRaImzbca2g!/r/dLYAAAAAAAAA',
+  'myRewardBg': 'http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/jUoeVWEPqaH7eFbZF0e*KtDMZBu8sRcHjCdVq8yhkg4!/r/dL4AAAAAAAAA',
+  'myRewardH': 25.0,
+  'myRewardW': 86.0
+}

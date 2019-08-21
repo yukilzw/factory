@@ -162,6 +162,8 @@ class dyFlutter(SessionHandler, tornado.web.RequestHandler):
             data["data"] = flutter_data.giftData
         elif re.search('/msgData', url, re.I):
             data["data"] = flutter_data.msgData
+        elif re.search('/lotteryConfig', url, re.I):
+            data["data"] = flutter_data.lotteryConfig
 
         self.write(data)
 
