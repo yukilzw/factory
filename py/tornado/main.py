@@ -164,6 +164,9 @@ class dyFlutter(SessionHandler, tornado.web.RequestHandler):
             data["data"] = flutter_data.msgData
         elif re.search('/lotteryConfig', url, re.I):
             data["data"] = flutter_data.lotteryConfig
+        elif re.search('/lotteryResult', url, re.I):
+            yield from asyncio.sleep(.9)
+            data["data"] = flutter_data.lotteryResult()
 
         self.write(data)
 

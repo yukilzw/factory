@@ -1,3 +1,44 @@
+import random
+
+def lotteryResult():   
+    index = random.randint(0,7)
+    return gift[index]
+
+gift = [
+  {
+    'giftName': '100鱼丸',
+    'giftIndex': 0
+  },
+  {
+    'giftName': '礼物道具棒棒哒 × 1',
+    'giftIndex': 1
+  },
+  {
+    'giftName': '鲲抱枕 × 1',
+    'giftIndex': 2
+  },
+  {
+    'giftName': '谢谢参与',
+    'giftIndex': 3
+  },
+  {
+    'giftName': '礼物道具弱鸡 × 1',
+    'giftIndex': 4
+  },
+  {
+    'giftName': '蔡文姬手办 × 1',
+    'giftIndex': 5
+  },
+  {
+    'giftName': '100Q币',
+    'giftIndex': 6
+  },
+  {
+    'giftName': '10Q币',
+    'giftIndex': 7
+  }
+]
+
 nav = [
     '推荐', '英雄联盟', '绝地求生', '王者荣耀', '和平精英', '颜值',
     '一起看', '户外', 'DNF', '穿越火线', '主机游戏', '二次元', 'DOTA2'
