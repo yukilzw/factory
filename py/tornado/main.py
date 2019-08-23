@@ -152,7 +152,7 @@ class dyFlutter(SessionHandler, tornado.web.RequestHandler):
         url = self.request.uri
 
         if re.search('/nav', url, re.I):
-            yield from asyncio.sleep(2)
+            #yield from asyncio.sleep(2)
             data["data"] = flutter_data.nav
         elif re.search('/swiper', url, re.I):
             data["data"] = flutter_data.swiperPic
