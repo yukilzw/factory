@@ -1,9 +1,54 @@
-import random
+# dy_flutter DataCenter
+import tornado, asyncio, random, requests, urllib, re
 
-def lotteryResult():   
-    index = random.randint(0,7)
-    return gift[index]
+class dyFlutter(tornado.web.RequestHandler):
+    def getliveData(self):
+        param = {
+            'type': 'yz',
+            'page': self.get_argument("page", default='1')
+        }
+        values = urllib.parse.urlencode(param)
+        response = requests.request('GET', 'https://m.douyu.com/api/room/list?' + str(values), stream=True)
+        if response.status_code == 200:
+            return response.text
+        else:
+            return liveData
 
+    def lotteryResult(self):
+        index = random.randint(0,7)
+        return gift[index]
+
+    async def post(self):
+        await self.get()
+
+    @asyncio.coroutine
+    def get(self):
+        data = {
+            "error": 0,
+            "msg": "ok"
+        }
+        url = self.request.uri
+
+        if re.search('/nav', url, re.I):
+            #yield from asyncio.sleep(2)
+            data["data"] = nav
+        elif re.search('/swiper', url, re.I):
+            data["data"] = swiperPic
+        elif re.search('/liveData', url, re.I):
+            data = self.getliveData()
+        elif re.search('/giftData', url, re.I):
+            data["data"] = giftData
+        elif re.search('/msgData', url, re.I):
+            data["data"] = msgData
+        elif re.search('/lotteryConfig', url, re.I):
+            data["data"] = lotteryConfig
+        elif re.search('/lotteryResult', url, re.I):
+            yield from asyncio.sleep(.9)
+            data["data"] = self.lotteryResult()
+
+        self.write(data)
+
+# default Data
 gift = [
   {
     'giftName': '100鱼丸',
@@ -53,126 +98,131 @@ swiperPic = [
   'http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/kXX56r1pIU.XFf.wr4mF3pwRBV9vX9qvGJg4sx1uE0k!/r/dE8BAAAAAAAA'
 ]
 
-liveData = [
-  {
-    "rid": 6597095,
-    "vipId": 0,
-    "roomName": "【唱跳主播】试图温柔的舞蹈主播",
-    "cate1Id": 0,
-    "cate2Id": 311,
-    "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/sSITT7Yd3McRebgfEhWZVy3GOWiwtRsb86CuLWP18qg!/r/dMMAAAAAAAAA",
-    "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/Uek2RBFDyQKZw4eWhn0yCDJl.pSFEoVjSRNyjrpTHVM!/r/dL4AAAAAAAAA",
-    "nickname": "阿让让丶",
-    "isVertical": 0,
-    "liveCity": "鱼塘",
-    "isLive": 1,
-    "hn": "1192.1万"
-  }, {
-    "rid": 968987,
-    "vipId": 0,
-    "roomName": "腿长2m会跳舞的模特妹妹呀",
-    "cate1Id": 0,
-    "cate2Id": 311,
-    "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/YlBFCPPvdoeqNuGfTS2fJz3pRIjiFb3xlLogWon5pc0!/r/dL8AAAAAAAAA",
-    "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/YyHKHSXyJ8zZD76nfSrYPECV65NrmrW6NrO46RwO52Y!/r/dLYAAAAAAAAA",
-    "nickname": "南妹儿呀",
-    "isVertical": 0,
-    "liveCity": "鱼塘",
-    "isLive": 1,
-    "hn": "25.5万"
-  }, {
-    "rid": 513890,
-    "vipId": 0,
-    "roomName": "山东小甜甜",
-    "cate1Id": 0,
-    "cate2Id": 201,
-    "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/l.AHxX3DD7copb4a3B7E.EA0VE0HyRCJx5*p7uWyFOI!/r/dFMBAAAAAAAA",
-    "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/FBhyivqv7BViM2VHWZKmoczfCQUp.NJz9ERaceJVJZQ!/r/dFIBAAAAAAAA",
-    "nickname": "大美人虞姬",
-    "isVertical": 1,
-    "liveCity": "鱼塘",
-    "isLive": 1,
-    "hn": "38.8万"
-  }, {
-    "rid": 6611509,
-    "vipId": 0,
-    "roomName": "想不出标题 想你",
-    "cate1Id": 0,
-    "cate2Id": 201,
-    "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/h6mA07Rv.RduJhomiKoqzZw5Pz2aCUJa5hUwRqEyGjU!/r/dMMAAAAAAAAA",
-    "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/lnNVlzMIH7ptD1dH7Xd6JcalaWd.Sg3zIwM7CF5.i00!/r/dFQBAAAAAAAA",
-    "nickname": "你的怡宝阿",
-    "isVertical": 1,
-    "liveCity": "孝感市",
-    "isLive": 1,
-    "hn": "4.8万"
-  }, {
-    "rid": 910907,
-    "vipId": 0,
-    "roomName": "凉凉小主播回来了",
-    "cate1Id": 0,
-    "cate2Id": 201,
-    "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/vbuK5Lc9B86b7RfvROZzlbP.8hGdJPojTTsabOWSDYM!/r/dLgAAAAAAAAA",
-    "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/9iN5AqTsytMeLcWQ56xLgtYX*CfeHYPJ1eqqj4p5OTM!/r/dL8AAAAAAAAA",
-    "nickname": "流口水的小熊猫",
-    "isVertical": 1,
-    "liveCity": "大连市",
-    "isLive": 1,
-    "hn": "138.4万"
-  }, {
-    "rid": 5324159,
-    "vipId": 0,
-    "roomName": "15号晚上八点周年庆啦，欢迎大家",
-    "cate1Id": 0,
-    "cate2Id": 201,
-    "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/SnDeyEXwOYE9kd6Qt6tOiR6Jd15ZPv1hHNs745fHU.g!/r/dL8AAAAAAAAA",
-    "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/FhbZBofWLBP22xjfHDoYUjsJSqD4oyl2quqvbMDzv74!/r/dAcBAAAAAAAA",
-    "nickname": "白菜mm丶",
-    "isVertical": 1,
-    "liveCity": "无锡市",
-    "isLive": 1,
-    "hn": "429.2万"
-  }, {
-    "rid": 5656277,
-    "vipId": 0,
-    "roomName": "对不起我又没洗头",
-    "cate1Id": 0,
-    "cate2Id": 201,
-    "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/so*Ld8iEATZeylfdoFtPzlQoC5AOrW8rk9YplPNMNN0!/r/dIMAAAAAAAAA",
-    "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/AwZhsgPh44XckW2bylNQP2io3JxB714xeW4.mHZL4eY!/r/dL8AAAAAAAAA",
-    "nickname": "美羊羊公举",
-    "isVertical": 1,
-    "liveCity": "苏州市",
-    "isLive": 1,
-    "hn": "57.8万"
-  }, {
-    "rid": 1997783,
-    "vipId": 0,
-    "roomName": "治愈系甜美邻家女孩~",
-    "cate1Id": 0,
-    "cate2Id": 311,
-    "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/ZOakGzN3uA8nHAsl8coF.15GVERdNHp.ZjfnywFIP8w!/r/dL8AAAAAAAAA",
-    "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/uoNTLkHhh1O2M90WWKCpe*Qf5K0tWVpbePLcgI8VOvk!/r/dMMAAAAAAAAA",
-    "nickname": "迎接太阳的庆",
-    "isVertical": 0,
-    "liveCity": "鱼塘",
-    "isLive": 1,
-    "hn": "64.7万"
-  }, {
-    "rid": 4566947,
-    "vipId": 0,
-    "roomName": "你的小可爱已到货快来签收",
-    "cate1Id": 0,
-    "cate2Id": 201,
-    "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/7RnWwkhUOkzWkHNSjdljh*6*tkcHTz5CngbWQ2ct4nY!/r/dDQBAAAAAAAA",
-    "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/pyIDMIBofTjdLKhBKnFgv*9CSpktrXnm0AxUeGywAoI!/r/dMUAAAAAAAAA",
-    "nickname": "关晓羽",
-    "isVertical": 1,
-    "liveCity": "鱼塘",
-    "isLive": 1,
-    "hn": "22.3万"
-  },
-]
+liveData = {
+    "code": 0,
+    "data": {
+        "list": [
+            {
+                "rid": 6597095,
+                "vipId": 0,
+                "roomName": "【唱跳主播】试图温柔的舞蹈主播",
+                "cate1Id": 0,
+                "cate2Id": 311,
+                "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/sSITT7Yd3McRebgfEhWZVy3GOWiwtRsb86CuLWP18qg!/r/dMMAAAAAAAAA",
+                "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/Uek2RBFDyQKZw4eWhn0yCDJl.pSFEoVjSRNyjrpTHVM!/r/dL4AAAAAAAAA",
+                "nickname": "阿让让丶",
+                "isVertical": 0,
+                "liveCity": "鱼塘",
+                "isLive": 1,
+                "hn": "1192.1万"
+            }, {
+                "rid": 968987,
+                "vipId": 0,
+                "roomName": "腿长2m会跳舞的模特妹妹呀",
+                "cate1Id": 0,
+                "cate2Id": 311,
+                "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/YlBFCPPvdoeqNuGfTS2fJz3pRIjiFb3xlLogWon5pc0!/r/dL8AAAAAAAAA",
+                "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/YyHKHSXyJ8zZD76nfSrYPECV65NrmrW6NrO46RwO52Y!/r/dLYAAAAAAAAA",
+                "nickname": "南妹儿呀",
+                "isVertical": 0,
+                "liveCity": "鱼塘",
+                "isLive": 1,
+                "hn": "25.5万"
+            }, {
+                "rid": 513890,
+                "vipId": 0,
+                "roomName": "山东小甜甜",
+                "cate1Id": 0,
+                "cate2Id": 201,
+                "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/l.AHxX3DD7copb4a3B7E.EA0VE0HyRCJx5*p7uWyFOI!/r/dFMBAAAAAAAA",
+                "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/FBhyivqv7BViM2VHWZKmoczfCQUp.NJz9ERaceJVJZQ!/r/dFIBAAAAAAAA",
+                "nickname": "大美人虞姬",
+                "isVertical": 1,
+                "liveCity": "鱼塘",
+                "isLive": 1,
+                "hn": "38.8万"
+            }, {
+                "rid": 6611509,
+                "vipId": 0,
+                "roomName": "想不出标题 想你",
+                "cate1Id": 0,
+                "cate2Id": 201,
+                "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/h6mA07Rv.RduJhomiKoqzZw5Pz2aCUJa5hUwRqEyGjU!/r/dMMAAAAAAAAA",
+                "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/lnNVlzMIH7ptD1dH7Xd6JcalaWd.Sg3zIwM7CF5.i00!/r/dFQBAAAAAAAA",
+                "nickname": "你的怡宝阿",
+                "isVertical": 1,
+                "liveCity": "孝感市",
+                "isLive": 1,
+                "hn": "4.8万"
+            }, {
+                "rid": 910907,
+                "vipId": 0,
+                "roomName": "凉凉小主播回来了",
+                "cate1Id": 0,
+                "cate2Id": 201,
+                "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/vbuK5Lc9B86b7RfvROZzlbP.8hGdJPojTTsabOWSDYM!/r/dLgAAAAAAAAA",
+                "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/9iN5AqTsytMeLcWQ56xLgtYX*CfeHYPJ1eqqj4p5OTM!/r/dL8AAAAAAAAA",
+                "nickname": "流口水的小熊猫",
+                "isVertical": 1,
+                "liveCity": "大连市",
+                "isLive": 1,
+                "hn": "138.4万"
+            }, {
+                "rid": 5324159,
+                "vipId": 0,
+                "roomName": "15号晚上八点周年庆啦，欢迎大家",
+                "cate1Id": 0,
+                "cate2Id": 201,
+                "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/SnDeyEXwOYE9kd6Qt6tOiR6Jd15ZPv1hHNs745fHU.g!/r/dL8AAAAAAAAA",
+                "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/FhbZBofWLBP22xjfHDoYUjsJSqD4oyl2quqvbMDzv74!/r/dAcBAAAAAAAA",
+                "nickname": "白菜mm丶",
+                "isVertical": 1,
+                "liveCity": "无锡市",
+                "isLive": 1,
+                "hn": "429.2万"
+            }, {
+                "rid": 5656277,
+                "vipId": 0,
+                "roomName": "对不起我又没洗头",
+                "cate1Id": 0,
+                "cate2Id": 201,
+                "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/so*Ld8iEATZeylfdoFtPzlQoC5AOrW8rk9YplPNMNN0!/r/dIMAAAAAAAAA",
+                "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/AwZhsgPh44XckW2bylNQP2io3JxB714xeW4.mHZL4eY!/r/dL8AAAAAAAAA",
+                "nickname": "美羊羊公举",
+                "isVertical": 1,
+                "liveCity": "苏州市",
+                "isLive": 1,
+                "hn": "57.8万"
+            }, {
+                "rid": 1997783,
+                "vipId": 0,
+                "roomName": "治愈系甜美邻家女孩~",
+                "cate1Id": 0,
+                "cate2Id": 311,
+                "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/ZOakGzN3uA8nHAsl8coF.15GVERdNHp.ZjfnywFIP8w!/r/dL8AAAAAAAAA",
+                "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/uoNTLkHhh1O2M90WWKCpe*Qf5K0tWVpbePLcgI8VOvk!/r/dMMAAAAAAAAA",
+                "nickname": "迎接太阳的庆",
+                "isVertical": 0,
+                "liveCity": "鱼塘",
+                "isLive": 1,
+                "hn": "64.7万"
+            }, {
+                "rid": 4566947,
+                "vipId": 0,
+                "roomName": "你的小可爱已到货快来签收",
+                "cate1Id": 0,
+                "cate2Id": 201,
+                "roomSrc": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/7RnWwkhUOkzWkHNSjdljh*6*tkcHTz5CngbWQ2ct4nY!/r/dDQBAAAAAAAA",
+                "avatar": "http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/pyIDMIBofTjdLKhBKnFgv*9CSpktrXnm0AxUeGywAoI!/r/dMUAAAAAAAAA",
+                "nickname": "关晓羽",
+                "isVertical": 1,
+                "liveCity": "鱼塘",
+                "isLive": 1,
+                "hn": "22.3万"
+            },
+        ]
+    }
+}
 
 giftData = [
     {

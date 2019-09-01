@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+# Mock数据服务，客户端接口联调
+
 import tornado.ioloop
 import tornado.web
 import tornado.httpserver
@@ -142,37 +145,6 @@ class getRankList(SessionHandler, tornado.web.RequestHandler):
             )
         self.write(data)
 
-class dyFlutter(SessionHandler, tornado.web.RequestHandler):
-    @asyncio.coroutine
-    def get(self):
-        data = {
-            "error": 0,
-            "msg": "ok"
-        }
-        url = self.request.uri
-
-        if re.search('/nav', url, re.I):
-            #yield from asyncio.sleep(2)
-            data["data"] = flutter_data.nav
-        elif re.search('/swiper', url, re.I):
-            data["data"] = flutter_data.swiperPic
-        elif re.search('/liveData', url, re.I):
-            data["data"] = flutter_data.liveData
-        elif re.search('/giftData', url, re.I):
-            data["data"] = flutter_data.giftData
-        elif re.search('/msgData', url, re.I):
-            data["data"] = flutter_data.msgData
-        elif re.search('/lotteryConfig', url, re.I):
-            data["data"] = flutter_data.lotteryConfig
-        elif re.search('/lotteryResult', url, re.I):
-            yield from asyncio.sleep(.9)
-            data["data"] = flutter_data.lotteryResult()
-
-        self.write(data)
-
-    async def post(self):
-        await self.get()
-
 def create_server():
     static_path = os.path.join(os.path.dirname(__file__), "static")
     template_path = os.path.join(os.path.dirname(__file__), "template")
@@ -183,7 +155,7 @@ def create_server():
         (r"/user", UserHandler),
         (r"^/mock.+", princeMockMsg),
         (r"/ztCache/outdoors/getHourRank", getRankList),
-        (r"^/dy/flutter.+", dyFlutter)
+        (r"^/dy/flutter.+", flutter_data.dyFlutter)
     ],
     template_path=template_path,
     static_path=static_path,
