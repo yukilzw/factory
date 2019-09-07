@@ -1,5 +1,5 @@
 # dy_flutter DataCenter
-import tornado, asyncio, random, requests, urllib, re
+import tornado, asyncio, random, requests, urllib, re, json
 
 class dyFlutter(tornado.web.RequestHandler):
     def getliveData(self):
@@ -10,7 +10,7 @@ class dyFlutter(tornado.web.RequestHandler):
         values = urllib.parse.urlencode(param)
         response = requests.request('GET', 'https://m.douyu.com/api/room/list?' + str(values), stream=True)
         if response.status_code == 200:
-            return response.text
+            return json.loads(response.text)
         else:
             return liveData
 
