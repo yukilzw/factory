@@ -155,6 +155,7 @@ def create_server():
         (r"/user", UserHandler),
         (r"^/mock.+", princeMockMsg),
         (r"/ztCache/outdoors/getHourRank", getRankList),
+        (r"/socket/dy/flutter", flutter_data.dyFlutterSocket),
         (r"^/dy/flutter.+", flutter_data.dyFlutter),
         (r"^/dy/rn/gameCenter.+.+", rn_game_center.dyReactNativeGameCenter)
     ],
@@ -164,11 +165,11 @@ def create_server():
 
 if __name__ == "__main__":
     app = create_server()
-    app.listen(1236)
-    '''
+    #app.listen(1236)
+
     sockets = tornado.netutil.bind_sockets(1236)
-    tornado.process.fork_processes(0)
+    #tornado.process.fork_processes(0)
     server = tornado.httpserver.HTTPServer(app)
     server.add_sockets(sockets)
-    '''
+
     tornado.ioloop.IOLoop.current().start()

@@ -1,6 +1,31 @@
 # dy_flutter DataCenter
 import tornado, asyncio, random, requests, urllib, re, json
 
+class dyFlutterSocket(tornado.websocket.WebSocketHandler):
+    def open(self):
+        pass
+
+    async def on_message(self, message):
+        if message == 'getChat':
+            i = 0
+            while i < 20:
+                index = random.randint(0, len(msgData) - 1)
+                await asyncio.sleep(random.uniform(.1, .5))
+                self.write_message(json.dumps(
+                    (message, msgData[index])
+                ))
+                i += 1
+        elif message == 'getGift':
+            for obj in giftData:
+                await asyncio.sleep(1)
+                self.write_message(json.dumps(
+                    (message, obj)
+                ))
+
+
+    def on_close(self):
+        pass
+
 class dyFlutter(tornado.web.RequestHandler):
     def getliveData(self):
         param = {
@@ -21,8 +46,7 @@ class dyFlutter(tornado.web.RequestHandler):
     async def post(self):
         await self.get()
 
-    @asyncio.coroutine
-    def get(self):
+    async def get(self):
         data = {
             "error": 0,
             "msg": "ok"
@@ -30,7 +54,7 @@ class dyFlutter(tornado.web.RequestHandler):
         url = self.request.uri
 
         if re.search('/nav', url, re.I):
-            #yield from asyncio.sleep(2)
+            await asyncio.sleep(15)
             data["data"] = nav
         elif re.search('/swiper', url, re.I):
             data["data"] = swiperPic
@@ -43,7 +67,7 @@ class dyFlutter(tornado.web.RequestHandler):
         elif re.search('/lotteryConfig', url, re.I):
             data["data"] = lotteryConfig
         elif re.search('/lotteryResult', url, re.I):
-            yield from asyncio.sleep(.9)
+            await asyncio.sleep(.9)
             data["data"] = self.lotteryResult()
 
         self.write(data)
