@@ -1,9 +1,8 @@
-var http=require('http');
-var fs=require('fs');
+var fs = require('fs');
 
+var out = fs.createWriteStream('./message.txt');
 
-var out=fs.createWriteStream('./message.txt')
-process.stdin.on('data',(data)=>{
-    out.write(data)
-   //process.exit()
-})
+process.stdin.on('data', function(data) {
+    out.write(data);
+    // process.exit()
+});
