@@ -1,29 +1,47 @@
 # dy_flutter DataCenter
 import tornado, asyncio, random, requests, urllib, re, json
+import time,threading
 
 class dyFlutterSocket(tornado.websocket.WebSocketHandler):
-    def open(self):
-        pass
+    @staticmethod
+    def sendMsg(self, message):
+        asyncio.set_event_loop(asyncio.new_event_loop())
+        try:
+          i = 0
+          while i < 20:
+              index = random.randint(0, len(msgData) - 1)
+              time.sleep(random.uniform(.1, .5))
+              self.write_message(json.dumps(
+                  (message, msgData[index])
+              ))
+              i += 1
+        except tornado.websocket.WebSocketClosedError:
+          pass
 
-    async def on_message(self, message):
+    @staticmethod
+    def sendGift(self, message):
+        asyncio.set_event_loop(asyncio.new_event_loop())
+        try:
+          for obj in giftData:
+              time.sleep(1)
+              self.write_message(json.dumps(
+                  (message, obj)
+              ))
+        except tornado.websocket.WebSocketClosedError:
+          pass
+
+    def on_message(self, message):
         if message == 'getChat':
-            i = 0
-            while i < 20:
-                index = random.randint(0, len(msgData) - 1)
-                await asyncio.sleep(random.uniform(.1, .5))
-                self.write_message(json.dumps(
-                    (message, msgData[index])
-                ))
-                i += 1
+            fuc = dyFlutterSocket.sendMsg
         elif message == 'getGift':
-            for obj in giftData:
-                await asyncio.sleep(1)
-                self.write_message(json.dumps(
-                    (message, obj)
-                ))
-
+            fuc = dyFlutterSocket.sendGift
+        t = threading.Thread(target=fuc, args=(self, message))
+        t.start()
 
     def on_close(self):
+        pass
+    
+    def open(self):
         pass
 
 class dyFlutter(tornado.web.RequestHandler):
@@ -54,7 +72,6 @@ class dyFlutter(tornado.web.RequestHandler):
         url = self.request.uri
 
         if re.search('/nav', url, re.I):
-            await asyncio.sleep(15)
             data["data"] = nav
         elif re.search('/swiper', url, re.I):
             data["data"] = swiperPic
