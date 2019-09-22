@@ -62,9 +62,16 @@ class dyFlutter(tornado.web.RequestHandler):
         return gift[index]
 
     async def post(self):
-        await self.get()
+        data = await self.handel()
+
+        self.write(data)
 
     async def get(self):
+        data = await self.handel()
+
+        self.write(data)
+
+    async def handel(self):
         data = {
             "error": 0,
             "msg": "ok"
@@ -87,7 +94,7 @@ class dyFlutter(tornado.web.RequestHandler):
             await asyncio.sleep(.9)
             data["data"] = self.lotteryResult()
 
-        self.write(data)
+        return data
 
 # default Data
 gift = [
