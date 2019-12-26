@@ -1,5 +1,5 @@
 # dy_flutter DataCenter
-import tornado, asyncio, random, requests, urllib, re, json
+import tornado, asyncio, random, requests, urllib, re, json, time
 import time,threading
 
 class dyFlutterSocket(tornado.websocket.WebSocketHandler):
@@ -88,6 +88,8 @@ class dyFlutter(tornado.web.RequestHandler):
             data["data"] = giftData
         elif re.search('/msgData', url, re.I):
             data["data"] = msgData
+        elif re.search('/yubaList', url, re.I):
+            data["data"] = yubaList
         elif re.search('/lotteryConfig', url, re.I):
             data["data"] = lotteryConfig
         elif re.search('/lotteryResult', url, re.I):
@@ -363,3 +365,92 @@ lotteryConfig = {
   'myRewardH': 25.0,
   'myRewardW': 86.0
 }
+
+yubaList = [
+  {
+    'name': '小玉太难了丶',
+    'avatar': 'http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/9iN5AqTsytMeLcWQ56xLgtYX*CfeHYPJ1eqqj4p5OTM!/r/dL8AAAAAAAAA',
+    'sex': 0,
+    'level': 30,
+    'time': int(time.time()) - (1 * 60 * 60),
+    'read': 159651,
+    'title': '10月24日晚六点，我再斗鱼3168536等你！！！不见不散哦！',
+    'content': '观众姥爷们，我正方形主播玉酱回来啦！24号晚六点，斗鱼房间3168536，我再直播间等你们！还有精彩好礼，不停放送！！',
+    'pic': [
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572082173861&di=e5e040c062de8d2c56216205c4d95f9b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201612%2F01%2F20161201234647_MPzZc.jpeg',
+    ],
+    'hot': 82,
+    'discuss': [
+      {
+        'from': '醉音符',
+        'talk': '小姐姐终于开播了，火车开起来！'
+      },
+      {
+        'from': '小流仔丶QAQ',
+        'to': '醉音符',
+        'talk': '你怎么像个魔教中人？'
+      }
+    ],
+    'anchor': '一条小团团',
+    'share': 129,
+    'chat': 2156,
+    'agree': 13542,
+    'isAgree': True
+  },
+  {
+    'name': 'white五五开',
+    'avatar': 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360261145&di=a8220b35b2635445f5bc6d7e89b7ff2f&imgtype=0&src=http%3A%2F%2Fimg08.oneniceapp.com%2Fupload%2Favatar%2F2018%2F08%2F02%2F68bb8d2db8a957c96da95fd20a46ee10.jpg',
+    'sex': 1,
+    'level': 80,
+    'time': int(time.time()) - (24 * 60 * 60),
+    'read': 159651,
+    'title': '伞兵一号卢本伟准备就绪~',
+    'content': '当年陈刀仔从20块赢到3700W，我卢本伟从20W赢到500W，冒得问题！',
+    'pic': [
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360392463&di=127a2c1ea607d6591177e59f7df0ff5a&imgtype=0&src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2Fdae989eacbfad68b6d30c2e782cca329346e72ab.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360406918&di=d21ed61d55e281dce4bcff653db5de00&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn12%2F294%2Fw640h454%2F20180911%2F137d-hiycyfw9543492.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360406914&di=b63dd0f210d9d4a87e3368ef6b503ce3&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180218%2F1915abb20a294205b4c0bd2151176152.jpeg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360406910&di=a95c5103df899618d749dd1dc7e56dc4&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2Fdd921fe6d3c0cfd8ca56e4520340ab29dfdee0ac.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360406909&di=2059b081847bbeb89ff3f572f5bec480&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171107%2F6060f478d6a6413596a5eef8ac196737.jpg'
+    ],
+    'hot': 82,
+    'discuss': [
+      {
+        'from': '马飞飞',
+        'talk': '哇，牛逼啊开哥'
+      },
+      {
+        'from': '五五开',
+        'talk': '难受啊马飞'
+      }
+    ],
+    'anchor': '芜湖大司马',
+    'share': 12546,
+    'chat': 5236541,
+    'agree': 210259,
+    'isAgree': False
+  },
+  {
+    'name': '阿冷丶',
+    'avatar': 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894135&di=0b6ee5b73fff34d67c69a8978f5e9c93&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20181228%2F20181228180936_b4beb4ab9c40eaf9f2b14b22c3af23ab_1.jpeg',
+    'sex': 0,
+    'level': 50,
+    'time': int(time.time()) - (3 * 24 * 60 * 60),
+    'read': 6541,
+    'title': '今天嗓子有点痛，晚点播噢',
+    'content': '大家可以去我的鱼吧为我的年度公会战打CALL，完成超级粉丝牌的任务，领取礼物道具（超级火箭、宇宙飞船）!',
+    'pic': [
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894134&di=de0116077c2fc9a96b79b128a8e600c2&imgtype=0&src=http%3A%2F%2Fwx3.sinaimg.cn%2Fcrop.0.0.1024.576%2F4ce4fe8ely1g04ku00i81j20sg0is0zx.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894132&di=0b1977e1ca9611300fc7ceb8f7b58548&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2F091147167360a5ec7a6525f273e7ee8a872e72de.jpg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894131&di=d9ccf52a24a5f5abf1172cacefae8bc7&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180616%2F0b3f23499683436dafd2d8835672ee92.jpeg',
+      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894095&di=1bc9cdd4a913a94ab1da50c11f66ab39&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fent%2Ftransform%2Fw630h945%2F20171218%2FuQL3-fypsqka8267152.jpg'
+    ],
+    'hot': 302,
+    'discuss': [],
+    'anchor': '冯提莫',
+    'share': 65,
+    'chat': 1201,
+    'agree': 53,
+    'isAgree': False
+  }
+]
