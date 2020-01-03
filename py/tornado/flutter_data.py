@@ -61,6 +61,13 @@ class dyFlutter(tornado.web.RequestHandler):
         index = random.randint(0,7)
         return gift[index]
 
+    def addId(self, yubaList):
+        result = []
+        for item in yubaList:
+            item['id'] = str(random.random())
+            result.append(item)
+        return result
+
     async def post(self):
         data = await self.handel()
 
@@ -89,7 +96,7 @@ class dyFlutter(tornado.web.RequestHandler):
         elif re.search('/msgData', url, re.I):
             data["data"] = msgData
         elif re.search('/yubaList', url, re.I):
-            data["data"] = yubaList
+            data["data"] = self.addId(yubaList)
         elif re.search('/lotteryConfig', url, re.I):
             data["data"] = lotteryConfig
         elif re.search('/lotteryResult', url, re.I):
@@ -368,6 +375,7 @@ lotteryConfig = {
 
 yubaList = [
   {
+    'id': '', # 动态注入
     'name': '小玉太难了丶',
     'avatar': 'http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/9iN5AqTsytMeLcWQ56xLgtYX*CfeHYPJ1eqqj4p5OTM!/r/dL8AAAAAAAAA',
     'sex': 0,
@@ -398,6 +406,7 @@ yubaList = [
     'isAgree': True
   },
   {
+    'id': '',
     'name': 'white五五开',
     'avatar': 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360261145&di=a8220b35b2635445f5bc6d7e89b7ff2f&imgtype=0&src=http%3A%2F%2Fimg08.oneniceapp.com%2Fupload%2Favatar%2F2018%2F08%2F02%2F68bb8d2db8a957c96da95fd20a46ee10.jpg',
     'sex': 1,
@@ -431,6 +440,7 @@ yubaList = [
     'isAgree': False
   },
   {
+    'id': '',
     'name': '阿冷丶',
     'avatar': 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894135&di=0b6ee5b73fff34d67c69a8978f5e9c93&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20181228%2F20181228180936_b4beb4ab9c40eaf9f2b14b22c3af23ab_1.jpeg',
     'sex': 0,
