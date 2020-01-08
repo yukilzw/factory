@@ -122,7 +122,7 @@ class getRankList(SessionHandler, tornado.web.RequestHandler):
         page = self.get_argument("page", default=1)
         pageLimit = int(self.get_argument("pageLimit", default=5))
         data = {
-            "error": 0,  #为0时正常，其他错误
+            "error": 0,
             "msg": "ok",
             "data": []
         }
@@ -131,16 +131,9 @@ class getRankList(SessionHandler, tornado.web.RequestHandler):
             i += 1
             data["data"].append(
                 {
-                    "idx": (page - 1) * pageLimit + i, #排名
-                    "sc": random.randint(0,10000),  #分数
-                    "distance": 0,
-                    "anchorInfo": { #主播信息
-                        "nickname": "林允儿",
-                        "avatar": {
-                            "middle": "http://news.youth.cn/yl/201612/W020161210523965745585.jpg",
-                        },
-                        "uid": 175842
-                    }
+                    "idx": (page - 1) * pageLimit + i,      # 排名
+                    "sc": random.randint(0,10000),          # 分数
+                    "distance": i                           # 差距
                 }
             )
         self.write(data)
@@ -154,7 +147,7 @@ def create_server():
         (r"/prince", princeIndex),
         (r"/user", UserHandler),
         (r"^/mock.+", princeMockMsg),
-        (r"/ztCache/outdoors/getHourRank", getRankList),
+        (r"/test/getHourRank", getRankList),
         (r"/socket/dy/flutter", flutter_data.dyFlutterSocket),
         (r"^/dy/flutter.+", flutter_data.dyFlutter),
         (r"^/dy/rn/gameCenter.+.+", rn_game_center.dyReactNativeGameCenter)
