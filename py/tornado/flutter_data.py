@@ -89,6 +89,8 @@ class dyFlutter(tornado.web.RequestHandler):
             data["data"] = nav
         elif re.search('/swiper', url, re.I):
             data["data"] = swiperPic
+        elif re.search('/broadcast', url, re.I):
+            data["data"] = broadcastSwiper
         elif re.search('/liveData', url, re.I):
             data = self.getliveData()
         elif re.search('/giftData', url, re.I):
@@ -153,6 +155,21 @@ swiperPic = [
   'http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/RlEg9VTbPdmilUBXHwqEFXMSIyKlOpolovzFRq0.*DE!/r/dLgAAAAAAAAA',
   'http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/hVYSRAuV2YZgZ0bDAVPhekvuckqmTZQsCgL.vIyVXbw!/r/dFQBAAAAAAAA',
   'http://r.photo.store.qq.com/psb?/V14dALyK4PrHuj/kXX56r1pIU.XFf.wr4mF3pwRBV9vX9qvGJg4sx1uE0k!/r/dE8BAAAAAAAA'
+]
+
+broadcastSwiper = [
+  {
+    'title': '斗鱼主播换机季',
+    'time': 1578480528,
+    'num': 22165,
+    'order': False
+  },
+  {
+    'title': '回归游戏，导师学员各显申通，最劲爆的PK场景',
+    'time': 1581504528,
+    'num': 22165,
+    'order': True
+  }
 ]
 
 liveData = {
