@@ -17,7 +17,6 @@ var connection = mysql.createConnection({
     database: 'test_db'
 });
 
-// 创建 application/x-www-form-urlencoded 编码解析
 app.use(bodyParser.urlencoded({ extended: false }));
 app.set('view engine', 'ejs');
 app.engine('*', require('ejs').__express);
@@ -118,7 +117,7 @@ function asynsDemo() {
         }, 2000);
     }, function(cb) {
         setTimeout(cb, 1000, null, 2);
-    }], function(err, result) {  // result是每个回调函数传进来的data参数，result=[1,2]
+    }], function(err, result) {  // result=[1,2]
         if (err) {
             console.error(err);
         } else {
@@ -134,18 +133,18 @@ connection.connect(function(err) {
     if (err) {
         console.log(err);
     } else {
-        console.log('连接数据库成功');
+        console.log('connect sql successed');
         app.get('/mysql', function (req, res) {
             connection.query('INSERT INTO lzw1 SET ?',
-                { id: 12, name: '厉害了我的哥', point: 3, time: '2017-3-14', assess: '留言内容' },
+                { id: 12, name: 'yuki', point: 3, time: '2017-3-14', assess: 'info' },
                 function (err, result) {
                     if (err) {
                         console.log(err);
                         connection.end(function (err) {
                             if (err) {
-                                console.log('关闭数据库失败');
+                                console.log('close sql failed');
                             } else {
-                                console.log('关闭数据库成功');
+                                console.log('close sql successed');
                             }
                         });
                     } else {
