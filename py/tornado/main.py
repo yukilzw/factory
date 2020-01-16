@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Mock数据服务，客户端接口联调
+# Mock data server,used for clients.
 
 import tornado.ioloop
 import tornado.web
@@ -13,27 +13,27 @@ from hashlib import sha1
 
 import flutter_data, rn_game_center
 
-# 随机生成session_id
+# Generate session_id randomly
 create_session_id = lambda: sha1(bytes('%s%s' % (os.urandom(16), time.time()), encoding='utf-8')).hexdigest()
 
 class Session:
-    #自定义session
+    # diy session
 
     info_container = {
-        # session_id: {'user': info} --> 通过session保存用户信息，权限等
+        # session_id: {'user': info} --> Save user information, permissions, etc. via session
     }
 
     def __init__(self, handler):
         self.handler = handler
 
-        # 从 cookie 中获取作为 session_id 的随机字符串，如果没有或不匹配则生成 session_id
+        # Get a random string as a session_id from the cookie, or generate a session_id if there is no or no match.
         random_str = self.handler.get_cookie('session_id')
         if (not random_str) or (random_str not in self.info_container):
             random_str = create_session_id()
             self.info_container[random_str] = {}
         self.random_str = random_str
 
-        # 每次请求进来都会执行set_cookie，保证每次重置过期时间为当前时间以后xx秒以后
+        # Call set_cookie after each request.Ensure that the expiration time of each reset is XX seconds after the current time.
         self.handler.set_cookie('session_id', random_str, max_age=60)
 
     def __getitem__(self, item):
@@ -51,7 +51,7 @@ class Session:
 
 class SessionHandler:
     def initialize(self):
-        self.session = Session(self)  # handler增加session属性
+        self.session = Session(self)  # handler add session property
 
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def open(self):
@@ -131,9 +131,9 @@ class getRankList(SessionHandler, tornado.web.RequestHandler):
             i += 1
             data["data"].append(
                 {
-                    "idx": (page - 1) * pageLimit + i,      # 排名
-                    "sc": random.randint(0,10000),          # 分数
-                    "distance": i                           # 差距
+                    "idx": (page - 1) * pageLimit + i,      # rank
+                    "sc": random.randint(0,10000),          # score
+                    "distance": i                           # distance
                 }
             )
         self.write(data)
