@@ -23,7 +23,7 @@ class dyReactNativeGameCenter(tornado.web.RequestHandler):
                 data["data"]["rows"].append(
                     {
                         "app_id": 418,
-                        "icon": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1567511527800&di=0cf9a9f2d23bb6c7f1ad928af8f0ce67&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201806%2F15%2F20180615222449_dcjkh.jpg",
+                        "icon": "",
                         "name": "精灵骑士团" + str(random.randint(0,10000)),
                         "cate": "dfgg",
                         "size": 100,
@@ -31,7 +31,7 @@ class dyReactNativeGameCenter(tornado.web.RequestHandler):
                         "link": "",
                         "has_gift": 1,
                         "has_task": 1,
-                        "image": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1568104496&di=4eca293c760ba1bc23bbd3bcc967ed84&imgtype=jpg&er=1&src=http%3A%2F%2Fpic1.win4000.com%2Fwallpaper%2F8%2F56ea3ff9aec6e.jpg",
+                        "image": None,
                     }
                 )
 
