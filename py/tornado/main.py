@@ -9,49 +9,10 @@ import tornado.netutil
 import tornado.process
 import tornado.websocket
 import asyncio, random, os, time, re, json, sys
-from hashlib import sha1
+from decorater.httpCrossHeader import header
+from common.session import SessionHandler
 
-import flutter_data, rn_game_center
-
-# Generate session_id randomly
-create_session_id = lambda: sha1(bytes('%s%s' % (os.urandom(16), time.time()), encoding='utf-8')).hexdigest()
-
-class Session:
-    # diy session
-
-    info_container = {
-        # session_id: {'user': info} --> Save user information, permissions, etc. via session
-    }
-
-    def __init__(self, handler):
-        self.handler = handler
-
-        # Get a random string as a session_id from the cookie, or generate a session_id if there is no or no match.
-        random_str = self.handler.get_cookie('session_id')
-        if (not random_str) or (random_str not in self.info_container):
-            random_str = create_session_id()
-            self.info_container[random_str] = {}
-        self.random_str = random_str
-
-        # Call set_cookie after each request.Ensure that the expiration time of each reset is XX seconds after the current time.
-        self.handler.set_cookie('session_id', random_str, max_age=60)
-
-    def __getitem__(self, item):
-        return self.info_container[self.random_str].get(item)
-
-    def __setitem__(self, key, value):
-        self.info_container[self.random_str][key] = value
-
-    def __delitem__(self, key):
-        if self.info_container[self.random_str].get(key):
-            del self.info_container[self.random_str][key]
-
-    def delete(self):
-        del self.info_container[self.random_str]
-
-class SessionHandler:
-    def initialize(self):
-        self.session = Session(self)  # handler add session property
+import flutterData, rnGameCenter, uploadFile
 
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
     def open(self):
@@ -98,12 +59,13 @@ class UserHandler(SessionHandler, tornado.web.RequestHandler):
 
 class princeMockMsg(SessionHandler, tornado.web.RequestHandler):
     data = { "type": "From tornado server" }
+
+    @header('Origin')
     def post(self):
-        self.set_header("Access-Control-Allow-Origin", "*")
         self.write(self.data)
-    
+
+    @header('Origin')
     def get(self):
-        self.set_header("Access-Control-Allow-Origin", "*")
         if re.search(r"jsonp", self.request.path.lower()):
             self.write(self.get_argument('callback') + '(' + json.dumps(self.data) + ')')
         else:
@@ -111,14 +73,12 @@ class princeMockMsg(SessionHandler, tornado.web.RequestHandler):
 
 
 class getRankList(SessionHandler, tornado.web.RequestHandler):
+    @header('Headers', 'Methods', 'Origin')
     def options(self):
-        self.set_header("Access-Control-Allow-Headers", "*")
-        self.set_header("Access-Control-Allow-Methods", "GET,POST,OPTIONS")
-        self.set_header("Access-Control-Allow-Origin", "*")
         self.write({})
 
+    @header('Origin')
     def get(self):
-        self.set_header("Access-Control-Allow-Origin", "*")
         page = self.get_argument("page", default=1)
         pageLimit = int(self.get_argument("pageLimit", default=5))
         data = {
@@ -148,9 +108,10 @@ def create_server():
         (r"/user", UserHandler),
         (r"^/mock.+", princeMockMsg),
         (r"/test/getHourRank", getRankList),
-        (r"/socket/dy/flutter", flutter_data.dyFlutterSocket),
-        (r"^/dy/flutter.+", flutter_data.dyFlutter),
-        (r"^/dy/rn/gameCenter.+.+", rn_game_center.dyReactNativeGameCenter)
+        (r"/socket/dy/flutter", flutterData.dyFlutterSocket),
+        (r"^/dy/flutter.+", flutterData.dyFlutter),
+        (r"^/dy/rn/gameCenter.+.+", rnGameCenter.dyReactNativeGameCenter),
+        (r"/upload", uploadFile.upload)
     ],
     template_path=template_path,
     static_path=static_path,
