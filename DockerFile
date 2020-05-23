@@ -1,9 +1,9 @@
 FROM python:3.6.4
 
-WORKDIR /code
+WORKDIR /dockerEnv
 
-ADD . /code
+ADD . /dockerEnv
 
-RUN pip install -r /code/py/tornado/requirements.txt
+RUN pip install -r /dockerEnv/py/tornado/requirements.txt
 
-CMD ["python", "/code/py/tornado/main.py"]
+CMD ["python", "/dockerEnv/py/tornado/main.py"]
