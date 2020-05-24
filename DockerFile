@@ -4,6 +4,6 @@ WORKDIR /dockerEnv
 
 ADD . /dockerEnv
 
-RUN pip install -r /dockerEnv/py/tornado/requirements.txt
+RUN pip install -r /dockerEnv/tornado/requirements.txt
 
-CMD ["python", "/dockerEnv/py/tornado/main.py"]
+CMD ["python", "/dockerEnv/tornado/main.py"]
