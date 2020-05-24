@@ -7,37 +7,5 @@
 {% end %}
 
 {% block script %}
-<script>
-    const ws = new WebSocket("ws://localhost:1236/pysocket");
-
-    ws.onmessage = (evt) => {
-        console.log(evt.data);
-    };
-    document.querySelector('h2').addEventListener('click', () => {
-        ws.send("comming");
-    }, false);
-</script>
-<script>
-    const btn = document.querySelector('#uploadBtn');
-
-    btn.addEventListener('click', () => {
-        const fileObj = document.querySelector('#fileInput').files[0];
-        const reader = new FileReader();
-
-        reader.readAsArrayBuffer(fileObj);
-        reader.onload = (e) => {
-            const xhr = new XMLHttpRequest();
-
-            xhr.open('POST', `/upload?name=${fileObj.name}`);
-            xhr.setRequestHeader('Content-Type', 'application/octet-stream');
-            xhr.send(e.target.result);
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState == 4){
-                    const res = JSON.parse(xhr.response);
-                    console.log(res);
-                }
-            };
-        };
-    }, false);
-</script>
+<script src="/static/test.js"></script>
 {% end %}
