@@ -3,3 +3,4 @@ __pycache__
 /py/tornado/static/prince
 /py/tornado/template/prince.html
 /py/tornado/template/prince-dev.html
+.DS_Store
