@@ -1,4 +1,5 @@
 __pycache__
+.DS_Store
 /.vscode
 /py/tornado/static/prince
 /py/tornado/template/prince.html
