@@ -3,7 +3,7 @@ import os, cv2
 dirPath = os.path.dirname(os.path.abspath(__file__))
 cap = cv2.VideoCapture(dirPath + "/yoona.mp4")
 c = 1
-timeRate = .3  # 截取视频帧的时间间隔（这里是每隔10秒截取一帧）
+timeRate = .5  # 截取视频帧的时间间隔（这里是每隔10秒截取一帧）
  
 while(True):
 	ret, frame = cap.read()
@@ -13,7 +13,7 @@ while(True):
 		if(c % frameRate == 0):
 			print("the number of frames：" + str(c))
 			# 保存截取帧到本地
-			cv2.imwrite(dirPath + "/image/" + str(c) + '.jpg', frame)
+			cv2.imwrite(dirPath + "/images/frame" + str(c) + '.jpg', frame)
 		c += 1
 		cv2.waitKey(0)
 	else:
