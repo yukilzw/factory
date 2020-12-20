@@ -7,26 +7,26 @@ class dyFlutterSocket(tornado.websocket.WebSocketHandler):
     def sendMsg(self, message):
         asyncio.set_event_loop(asyncio.new_event_loop())
         try:
-          i = 0
-          while i < 20:
-              index = random.randint(0, len(msgData) - 1)
-              time.sleep(random.uniform(.1, .5))
-              self.write_message(json.dumps(
-                  (message, msgData[index])
-              ))
-              i += 1
+            i = 0
+            while i < 20:
+                index = random.randint(0, len(msgData) - 1)
+                time.sleep(random.uniform(.1, .5))
+                self.write_message(json.dumps(
+                    (message, msgData[index])
+                ))
+                i += 1
         except tornado.websocket.WebSocketClosedError:
-          pass
+             pass
 
     @staticmethod
     def sendGift(self, message):
         asyncio.set_event_loop(asyncio.new_event_loop())
         try:
-          for obj in giftData:
-              time.sleep(1)
-              self.write_message(json.dumps(
-                  (message, obj)
-              ))
+            for obj in giftData:
+                time.sleep(1)
+                self.write_message(json.dumps(
+                    (message, obj)
+                ))
         except tornado.websocket.WebSocketClosedError:
           pass
 
@@ -325,55 +325,55 @@ giftData = [
 msgData = [
   {
     'lv': 30,
-    'name': '迪丽热巴',
+    'name': '土块',
     'text': '我觉得这个主播长得还行叭~'
   }, {
     'lv': 80,
-    'name': '古力娜扎',
+    'name': '周淑怡',
     'text': '不如本小姐💗'
   }, {
     'lv': 3,
-    'name': '吴彦祖',
-    'text': '给我吴某人一个面子，你们两个不用争了，论颜值在座各位都是**，你们懂我的意思吧'
+    'name': '智勋勋勋勋',
+    'text': '给我勋某人一个面子，你们两个不用争了，论颜值在座各位都是**，你们懂我的意思吧'
   }, {
     'lv': 50,
-    'name': '吴亦凡',
+    'name': '芜湖大司马',
     'text': '？？？'
   }, {
     'lv': 3,
-    'name': '岳云鹏',
+    'name': '余小C',
     'text': '你们这些人好像傻fufu的亚子...'
   }, {
     'lv': 50,
-    'name': '郑爽',
-    'text': '我来刷个屏幕~~~~666666666666666666666666666     ~~~~666666666666666666666666666'
+    'name': '腐团儿',
+    'text': '别冲了兄弟们~~~~这个腿也没我长啊，有什么好看的呢'
   }, {
     'lv': -1,
     'name': '超管',
-    'text': '楼上的黄牌警告一次！！！小心封号'
+    'text': '楼上的黄牌警告一次，满两次将会被禁言！'
   }, {
     'lv': 50,
-    'name': '郑爽',
-    'text': '超管大哥我错了 o(TωT)o '
+    'name': 'SKT.Faker',
+    'text': '내가 틀렸다...'
   }, {
     'lv': -1,
     'name': '超管',
     'text': '请各位按照直播间规定，文明发言，切勿刷屏，违者将封禁ID三天小黑屋反省，谢谢合作！'
   }, {
     'lv': 30,
-    'name': '迪丽热巴',
+    'name': '土块',
     'text': '好的'
   }, {
     'lv': 80,
-    'name': '古力娜扎',
+    'name': '周淑怡',
     'text': '好哒'
   }, {
     'lv': 3,
-    'name': '吴彦祖',
+    'name': '余小C',
     'text': '我长的帅我说了算'
   }, {
     'lv': 50,
-    'name': '吴亦凡',
+    'name': '阿冷丶',
     'text': '哦'
   },
 ]
