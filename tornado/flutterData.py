@@ -6,17 +6,17 @@ class dyFlutterSocket(tornado.websocket.WebSocketHandler):
     @staticmethod
     def sendMsg(self, message):
         asyncio.set_event_loop(asyncio.new_event_loop())
-        try:
-            i = 0
-            while i < 20:
+        i = 0
+        while i < 20:
+            try:
                 index = random.randint(0, len(msgData) - 1)
                 time.sleep(random.uniform(.1, .5))
                 self.write_message(json.dumps(
                     (message, msgData[index])
                 ))
                 i += 1
-        except tornado.websocket.WebSocketClosedError:
-             pass
+            except Exception as e:
+                pass
 
     @staticmethod
     def sendGift(self, message):
