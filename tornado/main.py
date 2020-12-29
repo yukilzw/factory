@@ -5,9 +5,26 @@ import tornado.web
 import tornado.websocket
 import flutterData, rnGameCenter, uploadFile, princeSpa, testPage
 
+current_path = os.path.dirname(__file__)
+
+settings={
+    "template_path": os.path.join(current_path, "template"),
+    "static_path": os.path.join(current_path, "static"),
+    # "static_url_prefix":"/static/",
+    "debug": True,
+    "cookie_secret": "__TODO:LIU_ZHAN_WEI"
+}
+
+class BaseHandler(tornado.web.StaticFileHandler):
+    def write_error(self, status_code, **kwargs):
+        self.finish({
+            'error': {
+                'code': status_code,
+                'message': self._reason,
+            }
+        })
+
 def create_server():
-    static_path = os.path.join(os.path.dirname(__file__), "static")
-    template_path = os.path.join(os.path.dirname(__file__), "template")
     return tornado.web.Application([
         (r"/test", testPage.IndexHandler),
         (r"/test/user", testPage.UserHandler),
@@ -18,11 +35,14 @@ def create_server():
         (r"/socket/dy/flutter", flutterData.dyFlutterSocket),
         (r"^/dy/flutter.+", flutterData.dyFlutter),
         (r"^/dy/rn/gameCenter.+.+", rnGameCenter.dyReactNativeGameCenter),
-        (r"/upload", uploadFile.upload)
-    ],
-    template_path=template_path,
-    static_path=static_path,
-    cookie_secret="__TODO:LIU_ZHAN_WEI", debug=True)
+        (r"/upload", uploadFile.upload),
+        (r"/(.*)", BaseHandler,
+            {
+                "path": os.path.join(current_path, "flutter_web_bundle"),
+                "default_filename": "index.html"
+            }
+        ),
+    ], **settings)
 
 if __name__ == "__main__":
     app = create_server()
