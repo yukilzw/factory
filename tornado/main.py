@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 # Mock data server,used for clients.
 import os
+import socket
 import tornado.web
 import tornado.websocket
 import flutterData, rnGameCenter, uploadFile, princeSpa, testPage
@@ -23,6 +24,10 @@ class BaseHandler(tornado.web.StaticFileHandler):
                 'message': self._reason,
             }
         })
+
+def getIp():
+    addrs = socket.getaddrinfo(socket.gethostname(), None)
+    print('address -> http://' + [item[4][0] for item in addrs if ':' not in item[4][0]][0])
 
 def create_server():
     return tornado.web.Application([
@@ -52,6 +57,7 @@ if __name__ == "__main__":
     #tornado.process.fork_processes(0)
     server = tornado.httpserver.HTTPServer(app)
     server.add_sockets(sockets)
+    getIp()
     print('tornado start.')
 
     tornado.ioloop.IOLoop.current().start()
