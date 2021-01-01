@@ -25,9 +25,15 @@ class BaseHandler(tornado.web.StaticFileHandler):
             }
         })
 
-def getIp():
-    addrs = socket.getaddrinfo(socket.gethostname(), None)
-    print('address -> http://' + [item[4][0] for item in addrs if ':' not in item[4][0]][0])
+def get_host_ip():
+    try:
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(('8.8.8.8', 80))
+        ip = s.getsockname()[0]
+    finally:
+        s.close()
+ 
+    return ip
 
 def create_server():
     return tornado.web.Application([
@@ -57,7 +63,7 @@ if __name__ == "__main__":
     #tornado.process.fork_processes(0)
     server = tornado.httpserver.HTTPServer(app)
     server.add_sockets(sockets)
-    getIp()
+    print('address -> ' + get_host_ip())
     print('tornado start.')
 
     tornado.ioloop.IOLoop.current().start()
