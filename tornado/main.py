@@ -7,6 +7,7 @@ import tornado.websocket
 import flutterData, rnGameCenter, uploadFile, princeSpa, testPage
 
 current_path = os.path.dirname(__file__)
+port = 1236
 
 settings={
     "template_path": os.path.join(current_path, "template"),
@@ -42,7 +43,7 @@ def create_server():
         (r"/socket/test", testPage.WebSocketHandler),
         (r"/prince", princeSpa.princeIndex),
         (r"^/prince/mock.+", princeSpa.princeMockMsg),
-        (r"/dy/getHourRank", princeSpa.getRankList),
+        (r"/dy/getHourRank", princeSpa.getRankList), 
         (r"/socket/dy/flutter", flutterData.dyFlutterSocket),
         (r"^/dy/flutter.+", flutterData.dyFlutter),
         (r"^/dy/rn/gameCenter.+.+", rnGameCenter.dyReactNativeGameCenter),
@@ -57,13 +58,13 @@ def create_server():
 
 if __name__ == "__main__":
     app = create_server()
-    #app.listen(1236)
+    #app.listen(port)
 
-    sockets = tornado.netutil.bind_sockets(1236)
+    sockets = tornado.netutil.bind_sockets(port)
     #tornado.process.fork_processes(0)
     server = tornado.httpserver.HTTPServer(app)
     server.add_sockets(sockets)
-    print('address -> ' + get_host_ip())
+    print('address -> ' + get_host_ip() + str(port))
     print('tornado start.')
 
     tornado.ioloop.IOLoop.current().start()
