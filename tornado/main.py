@@ -64,7 +64,7 @@ if __name__ == "__main__":
     #tornado.process.fork_processes(0)
     server = tornado.httpserver.HTTPServer(app)
     server.add_sockets(sockets)
-    print('address -> ' + get_host_ip() + str(port))
+    print('address -> ' + get_host_ip() + ':' + str(port))
     print('tornado start.')
 
     tornado.ioloop.IOLoop.current().start()

@@ -402,7 +402,7 @@ yubaList = [
     'title': '10月24日晚六点，我再斗鱼3168536等你！！！不见不散哦！',
     'content': '观众姥爷们，我正方形主播玉酱回来啦！24号晚六点，斗鱼房间3168536，我再直播间等你们！还有精彩好礼，不停放送！！',
     'pic': [
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1572082173861&di=e5e040c062de8d2c56216205c4d95f9b&imgtype=0&src=http%3A%2F%2Fb-ssl.duitang.com%2Fuploads%2Fitem%2F201612%2F01%2F20161201234647_MPzZc.jpeg',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEFXFXnQhjxD.WofABoFG.o3*Qsf0oyF5yrWlQ3Y4FnSwIWL8CnUcQD2gU6GX5YvK*r3jZzspTjUxfbN7XIQ9crk!/r',
     ],
     'hot': 82,
     'discuss': [
@@ -425,7 +425,7 @@ yubaList = [
   {
     'id': '',
     'name': 'white五五开',
-    'avatar': 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360261145&di=a8220b35b2635445f5bc6d7e89b7ff2f&imgtype=0&src=http%3A%2F%2Fimg08.oneniceapp.com%2Fupload%2Favatar%2F2018%2F08%2F02%2F68bb8d2db8a957c96da95fd20a46ee10.jpg',
+    'avatar': 'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEOJgoW6KQuTNSROq4QzcEpt3ypSQF3ctaoyaNJhNMsUd5kTivEoEHlccAKKD85M9rPs4dvOrSPp.FPq7c98m*dM!/r',
     'sex': 1,
     'level': 80,
     'time': int(time.time()) - (24 * 60 * 60),
@@ -433,11 +433,11 @@ yubaList = [
     'title': '伞兵一号卢本伟准备就绪~',
     'content': '当年陈刀仔从20块赢到3700W，我卢本伟从20W赢到500W，冒得问题！',
     'pic': [
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360392463&di=127a2c1ea607d6591177e59f7df0ff5a&imgtype=0&src=http%3A%2F%2Fi2.hdslb.com%2Fbfs%2Farchive%2Fdae989eacbfad68b6d30c2e782cca329346e72ab.jpg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360406918&di=d21ed61d55e281dce4bcff653db5de00&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fsinacn12%2F294%2Fw640h454%2F20180911%2F137d-hiycyfw9543492.jpg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360406914&di=b63dd0f210d9d4a87e3368ef6b503ce3&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180218%2F1915abb20a294205b4c0bd2151176152.jpeg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360406910&di=a95c5103df899618d749dd1dc7e56dc4&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2Fdd921fe6d3c0cfd8ca56e4520340ab29dfdee0ac.jpg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360406909&di=2059b081847bbeb89ff3f572f5bec480&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20171107%2F6060f478d6a6413596a5eef8ac196737.jpg'
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrECsCoxbUqGDiWCzcCaMNadpwNNOrQN6fdFFKDO7vMXnvSGeJy4fIuwTkad1EVo*8KTs.wWyjV01LE55uOcDwRTY!/r',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEJ*ktPg3BnrtOB5ZlyJzD2SDnD8wR9HRaUvfDA8VX3A26WibY3SksDe0oPQftdtt0wysn*DK5fZfxFRHUlZWWkI!/r',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEH.Zo3e9KhfjDzTIDfSQJJiey2YYEgWGG4Dv6w73RfqI.4m1BHVfElCuoxxS9X63QAl2qF9XlV0sLZEEpIbvtoc!/r',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEAJncDUDBvW3iBYqeMnPJF*XkLGmOB8vpYIe2Xzswwo0WGVygTowfdpkaML9qNvY1oPE2*agf4LQomuYDITfb5A!/r',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEJ1k8vVccix*AD5fgYJH*Krioh2CYy8aA0Wwqf0vgkBsLDzwJO5l28Hggx1aKzBb72VH2tswn7d*aqRt2aIyUEk!/r'
     ],
     'hot': 82,
     'discuss': [
@@ -458,8 +458,70 @@ yubaList = [
   },
   {
     'id': '',
+    'name': '智勋勋勋勋',
+    'avatar': 'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEOm3cTsYX71M9wKWjRwCJhrQiBGA0m.YNqml6jjWgwgLGABbVNiERNjTQnyESyDkhACpMUjBoToHs*aaLIz9OW4!/r',
+    'sex': 1,
+    'level': 50,
+    'time': int(time.time()) - (4 * 60 * 60),
+    'read': 12564,
+    'title': '小姐姐你有凉快点的照片吗',
+    'content': '大家赶紧去给这个比心小姐姐点个赞，我靠这谁顶得住啊？',
+    'pic': [
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrECn*5X45UmCjjXB.BfckpGWRRM4PF1NLvcSQ4SXfavucz5VN02pTwU51PSUxMXCwIRR2ECmU*ETLaHJbVE7o0LE!/r',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEB*OV*zvzMDwQAplUUcur1rIYIAWBVPfYoY.oI1Cu1NR7cykHqHtf9WSb0PBmP7kR1w8EF4pPzbanlLr4RpOR*g!/r',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEJEqqDxPOtzgToC5ZXShd4oH1kK3j9hVYcyNKfcYjdXSsXUrEjbxlsJXNQDwzWDehmmBHdx4YTkos83Sb04fN5o!/r',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEGj5RcO1yCznjMgFp83vSiQAdZJu0voQstcek8r5s48OppINPkqKwhnrhgYyRXAwodhdWCf08wkpfmcT5BCMYQI!/r'
+    ],
+    'discuss': [
+      {
+        'from': 'Linke',
+        'talk': '约德尔老乡'
+      },
+      {
+        'from': '呆妹儿小霸王',
+        'talk': '这声老公我先叫了'
+      }
+    ],
+    'hot': 2104,
+    'anchor': '教主',
+    'share': 65,
+    'chat': 41,
+    'agree': 120,
+    'isAgree': False
+  },
+  {
+    'id': '',
+    'name': 'LISA',
+    'avatar': 'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrECvfZzzliPnLwXD4Alsi2yA3GUm5wWAXmgTj43bJgEzupvL8T7RmPkWT*jzxj7MXsQgPzwnvz8PO06WYKN2UyTE!/b&bo=6APoAwAAAAABFzA!&rf=viewer_4',
+    'sex': 0,
+    'level': 80,
+    'time': int(time.time()) - int(0.8 * 24 * 60 * 60),
+    'read': 6541,
+    'title': '大家好，我是LISA',
+    'content': '请大家多多关注black pink~',
+    'pic': [
+      'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEHCSn278EIS.Ztco0pQyXjluqAqZMrICcvAmOP4mj8EqkekgUbR37DW7NLd3hTGYVwmjUDffgxP.OYWdsCqltk4!/b&bo=gAI1BAAAAAABF4M!&rf=viewer_4',
+      'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEGdFIO4rj7fZrgFFYv.Drd.fZx.Oe6eMFdOuBqpJhHwkHQ4NuVZk3UmVv4.OMy5PWgFBWNeVycjanXtPWNAxwUE!/b&bo=6ANYAwAAAAABF4A!&rf=viewer_4',
+      'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEKuZ9ll.0XkofwHW*m64Bp1dOMRCQ2pnpn6RMkjuSshs6IeI*agGmrbNK0RjyHkV*QP1OoYo**JiW1z8uIDpIww!/b&bo=vAK7AgAAAAABFzc!&rf=viewer_4',
+      'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEO9csxxCYlKtBIG6.wMMwluHhD8DNk1NsCD3aJyLtkeXT*R*qB4HTk63C17hW4uU6ERhJLBfGhX9vY6*DVWOlyo!/b&bo=vAK8AgAAAAABFzA!&rf=viewer_4',
+      'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEFhXimhpeW9.dDCWHqvwg9M4Ihj4OrIptUtyclYhzU75OK2vXBJWH61ZvLcW9Wjpvnoo.*mCx*4Hkg7gLlWiLyk!/b&bo=gAIABAAAAAABF7Y!&rf=viewer_4',
+      'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEGN5jKxQsdTPWbK8dPkikNehC86NVtjF46CdBDIOPwDifSigMVU1FkVVNedUeMcZ1w3IqSMgn5QRCPRNAZh2pag!/b&bo=9AHvAQAAAAABFys!&rf=viewer_4',
+      'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEHxlnNj9aAtqPCwrIXIWIqTjOc8loKpGtYRmPgrkf*d3VAVtQhA5C2pDID3djK9GtzBK8Seoo*zWCS3plHfOVPw!/b&bo=kAGQAQAAAAABFzA!&rf=viewer_4',
+      'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEIr7POmXYwwkOHrKpfx*6fpeAwD9uhw88hOeRBsZQkllPF0jho2nxi5RERFbZTXa1eEFojBv*ZPl9aBFoerWb10!/b&bo=9AFvAgAAAAABF6g!&rf=viewer_4',
+      'http://m.qpic.cn/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEPgIXM4foZiWA0JJ..bpBSmAiBwX7ZiFrFIlNsv*L8a0kKzzDZqmG3BdOQd*6gAKLAPkwvAO87hblyCU8Rme9aQ!/b&bo=kAELAQAAAAABF6s!&rf=viewer_4'
+    ],
+    'hot': 65488,
+    'discuss': [],
+    'anchor': 'BLACK PINK',
+    'share': 1412,
+    'chat': 32105,
+    'agree': 12541,
+    'isAgree': False
+  },
+  {
+    'id': '',
     'name': '阿冷丶',
-    'avatar': 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894135&di=0b6ee5b73fff34d67c69a8978f5e9c93&imgtype=0&src=http%3A%2F%2F05imgmini.eastday.com%2Fmobile%2F20181228%2F20181228180936_b4beb4ab9c40eaf9f2b14b22c3af23ab_1.jpeg',
+    'avatar': 'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEHBmteT44aHk5h9nmbSDWpjWQ.N.OpM5cG6kvhzRmYFUOGmzfpfaV6zqxvelW*3fxmpTZfckafPLvHCVGI0Gi28!/r',
     'sex': 0,
     'level': 50,
     'time': int(time.time()) - (3 * 24 * 60 * 60),
@@ -467,14 +529,13 @@ yubaList = [
     'title': '今天嗓子有点痛，晚点播噢',
     'content': '大家可以去我的鱼吧为我的年度公会战打CALL，完成超级粉丝牌的任务，领取礼物道具（超级火箭、宇宙飞船）!',
     'pic': [
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894134&di=de0116077c2fc9a96b79b128a8e600c2&imgtype=0&src=http%3A%2F%2Fwx3.sinaimg.cn%2Fcrop.0.0.1024.576%2F4ce4fe8ely1g04ku00i81j20sg0is0zx.jpg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894132&di=0b1977e1ca9611300fc7ceb8f7b58548&imgtype=0&src=http%3A%2F%2Fi1.hdslb.com%2Fbfs%2Farchive%2F091147167360a5ec7a6525f273e7ee8a872e72de.jpg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894131&di=d9ccf52a24a5f5abf1172cacefae8bc7&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180616%2F0b3f23499683436dafd2d8835672ee92.jpeg',
-      'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1577360894095&di=1bc9cdd4a913a94ab1da50c11f66ab39&imgtype=0&src=http%3A%2F%2Fn.sinaimg.cn%2Fent%2Ftransform%2Fw630h945%2F20171218%2FuQL3-fypsqka8267152.jpg'
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEKIimZ5ku35IiB8ouply3mTf3g7iWuQYCqUpNL7.mSvc6mzJit49pKLE2RXrl0x.C9Rx1y6emL7ubCY1RM.dMWI!/r',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrEDCYhcAUpTOjnoUbyD4lEX4Ul9Bl1m.ftzH5.zz3scTc2r93dT*107hNKmyla5A.dWvtlOBdU2EUTzL8Nllgdeo!/r',
+      'http://r.photo.store.qq.com/psc?/V14dALyK4PrHuj/TmEUgtj9EK6.7V8ajmQrELzHcDo*Xy6D31j9lVnpncYpkGWS0Cql7Xf3yNfo5mFPTOAesA*stTQBNUVv6Ja2E.4*3Fl8jru*7*J*i7Z.FyY!/r'
     ],
     'hot': 302,
     'discuss': [],
-    'anchor': '冯提莫',
+    'anchor': '呆妹儿',
     'share': 65,
     'chat': 1201,
     'agree': 53,
